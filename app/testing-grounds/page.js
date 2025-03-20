@@ -1,24 +1,18 @@
-// app/dashboard/user/page.jsx
-
-/* Converted the dashboard page into a layout so that nested pages (Overview, Profile, Settings) render in place of the placeholder. Also replaced <a> tags with Next.js <Link> for client-side navigation. */
-
 "use client";
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-
-export default function UserDashboardLayout({ children }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+export default function TestingGround() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-900">
-      {/* Navbar */}
+        {/* Navbar */}
       <nav className="bg-gray-800 text-white shadow-lg sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
@@ -67,37 +61,41 @@ export default function UserDashboardLayout({ children }) {
           </div>
         </div>
       </nav>
-      <div className="flex flex-1">
-        <aside className={`${sidebarOpen ? "block" : "hidden"} md:block md:w-64 bg-gray-800 text-white p-6`}>
-          <h2 className="text-2xl font-bold mb-8">Dashboard</h2>
-          <nav>
-            <ul>
-              <li className="mb-4">
-                <Link href="/dashboard/user/overview" className="hover:text-indigo-400 transition">Overview</Link>
-              </li>
-              <li className="mb-4">
-                <Link href="/dashboard/user/profile" className="hover:text-indigo-400 transition">Profile</Link>
-              </li>
-              <li className="mb-4">
-                <Link href="/dashboard/user/settings" className="hover:text-indigo-400 transition">Settings</Link>
-              </li>
-            </ul>
-          </nav>
-        </aside>
-        <div className="flex-1 p-8">
-          <button 
-            className="md:hidden mb-4 px-4 py-2 bg-blue-600 text-white rounded"
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-          >
-            {sidebarOpen ? "Close Menu" : "Open Menu"}
-          </button>
-          <main>
-            {children}
-          </main>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 flex-1 min-h-0 border-2">
+        <h1 className="text-4xl font-bold mb-4 text-gray-800">Testing Grounds</h1>
+        <p className="text-xl mb-8 text-gray-600">Here you can test new features and components before they are added to the main site.</p>
+        <div className="relative w-24 h-24 mb-8">
+          <Image
+            src="/logo-1.png"
+            alt="BadSites Logo"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+      </main>
+
+      {/* Spacer */}
+      <div className="h-16"></div>
+
+      {/* Main Testing Space */}
+      <div className="container mx-auto px-4 flex-1 min-h-0 border-2">
+        <h1 className="text-4xl font-bold mb-4 text-gray-800">Main Testing Space</h1>
+        <p className="text-xl mb-8 text-gray-600">Here you can test new features and components before they are added to the main site.</p>
+        <div className="relative w-24 h-24 mb-8 border-2">
+          {/* Add your testing components here */}
         </div>
       </div>
-      <footer className="bg-gray-800 p-4 text-center text-white">
-        <p className="text-sm">&copy; 2025 Manhattan Dashboard. All rights reserved.</p>
+
+      {/* Spacer */}
+      <div className="h-16"></div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 p-4 text-center text-white mt-auto">
+        <div className="container mx-auto">
+          <p className="text-sm">&copy; 2025 BadSites. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
