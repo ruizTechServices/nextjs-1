@@ -8,7 +8,7 @@ export default function Home() {
       <div className="relative w-24 h-24 mb-8">
         <Image
           src="/logo-1.png"
-          alt="Under Construction"
+          alt="BadSites Logo"
           layout="fill"
           objectFit="contain"
         />
