@@ -25,6 +25,34 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submission:", formData);
+
+    // Validate name: must be at least 3 characters long
+    if (formData.name.length < 3) {
+      alert("Name must be at least 3 characters.");
+      return;
+    }
+
+    // Validate phone: must be a valid phone number
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      alert("Phone number must be 10 digits.");
+      return;
+    }
+
+    // Validate email: must be a valid email address
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate comment: must be at least 10 characters long
+    if (formData.comment.length < 10) {
+      alert("Comment must be at least 10 characters.");
+      return;
+    }
+
+    // Display success message after successful submission
+    alert("Thank you for your message!");
+
     // Reset form after submission
     setFormData({
       name: "",
